@@ -21,3 +21,19 @@ This repository contains a PHP project that offers a complete CRUD (Create, Read
 - User-Friendly Interface: The system features an intuitive and user-friendly interface, making navigation and interaction with the judicial process CRUD functionalities simple and easy to use.
 
 This repository is an excellent foundation for developers interested in building or contributing to judicial process management systems in PHP, utilizing MySQL for database management, HTML and CSS for frontend design, and JavaScript for interactive elements. It enables rapid implementation of a complete CRUD, while being highly customizable and extensible to meet the specific needs of different legal contexts.
+
+
+# Setup
+
+### Usando Apache na WSL
+
+sudo apt install apache2  
+sudo ufw app list  
+sudo ufw allow 'Apache'  
+sudo ufw status  
+sudo service apache2 start  
+
+Úteis:  
+[Usando systemctl na wsl](https://www.tabnews.com.br/ghostnetrn/corrigindo-o-erro-system-has-not-been-booted-with-systemd-as-init-system)  
+
+[Como redirecionar o apache para outra pasta](https://www.vivaolinux.com.br/dica/Alterando-pasta-padrao-varwww-para-pasta-no-Apache-2-Debian-8)  
