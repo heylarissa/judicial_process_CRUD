@@ -12,7 +12,7 @@ $result = $connection->query($sql); // Executa o comando SQL
 if ($result->num_rows > 0) {  // Verifica se são retornadas linhas
   // Exibe os dados de cada linha retornada
   while($row = $result->fetch_assoc()) {
-    echo "id: " . $row["client_id"]. " - Nome: " . $row["numero_processo"]. " " . $row["proximo_prazo"]. "<br>";
+    echo "id: " . $row["id"]. " - Processo: " . $row["numero_processo"]. " "."<br>";
   }
 } else {
   echo "Não foram retornados registros."; // Não há linhas (registros) retornados
