@@ -1,4 +1,5 @@
 <?php
+require "config.ini.php";
 
 class dbConnector{
     var $servername;
@@ -8,11 +9,11 @@ class dbConnector{
 
     public $connection;
 
-    public function __construct($servername, $username, $password, $database){
-        $this->servername = $servername;
-        $this->username = $username;
-        $this->password = $password;
-        $this->database = $database;
+    public function __construct(){
+        $this->servername = DB_SERVER; 
+        $this->username = DB_USER;
+        $this->password = DB_PASS;
+        $this->database = DB_DATABASE;
     }
 
     public function connect (){

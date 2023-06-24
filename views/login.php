@@ -17,7 +17,7 @@
         <h1>Login</h1>
         <form class="login-form" action="processos.php" method="post">
             <input label="Username" required placeholder="Usuário">
-            <input label="Password" type="Password" required placeholder="Senha">
+            <input label="Password" type="Password" required placeholder="Senha" placeholder="sua senha" required>
             <input type="submit" name="submit_btn" value="Enviar" class="btn-submit">
         </form>
         <?php
