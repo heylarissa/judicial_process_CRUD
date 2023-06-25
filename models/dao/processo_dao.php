@@ -1,6 +1,4 @@
 <?php
-include "../models/pessoa.php";
-include "../models/processo.php";
 
 class ProcessoDao
 {
@@ -14,7 +12,10 @@ class ProcessoDao
     public function insertProcesso(Processo $processo)
     {
         $query = "INSERT INTO processos (advogado_id, cliente_id, numero_processo, arquivo) 
-                VALUES ('{$processo->getAdvogado()->getId()}', '{$processo->getCliente()->getId()}', '{$processo->getNumeroProcesso()}', '{$processo->getArquivo()}');";
+                VALUES ('{$processo->getAdvogado()->getId()}', 
+                        '{$processo->getCliente()->getId()}', 
+                        '{$processo->getNumeroProcesso()}', 
+                        '{$processo->getArquivo()}');";
 
         $this->db->execute($query);
     }
