@@ -11,13 +11,13 @@ class UserController {
     {
         $this->db = new dbConnector();
     }
+    
     public function showUsers() {
         $users = new UserDao($this->db);
         $result = $users->getUsers();
         $this->db->connect()->close();
 
-        if ($result->num_rows > 0) {  // Verifica se são retornadas linhas
-            // Exibe os dados de cada linha retornada
+        if ($result->num_rows > 0) { 
             while ($user = $result->fetch_assoc()) {
                 echo "<tr>
                         <td>" . $user["id"] . "</td>
@@ -34,7 +34,7 @@ class UserController {
                     <td></td>
                     <td></td>
                     <td></td>
-                </tr>"; // Não há linhas (registros) retornados
+                </tr>";
         }
     }
 }
