@@ -1,8 +1,4 @@
 <?php
-require "../pessoa.php";
-require "modules/connectors/db_connector.php";
-
-
 class PessoaDao {
     private dbConnector $db;
 

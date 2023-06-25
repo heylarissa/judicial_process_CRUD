@@ -15,6 +15,7 @@ class ProcessoController {
     public function showProcessos(){
         $processos = new ProcessoDao($this->db);
         $result = $processos->getProcessos();
+        $this->db->connect()->close();
 
         if ($result->num_rows > 0) {  // Verifica se são retornadas linhas
             // Exibe os dados de cada linha retornada

@@ -26,8 +26,9 @@
 
             <tbody>
                 <?php
-                require '../controllers/processo_controller.php';
-
+                require '../controllers/pessoa_controller.php';
+                $pessoas = new PessoaController();
+                $pessoas->showPessoas();
                 ?>
             </tbody>
         </table>
