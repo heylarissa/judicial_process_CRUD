@@ -16,7 +16,12 @@ class PessoaController
         $pessoas = new PessoaDao($this->db);
         $result = $pessoas->getPessoas();
         $this->db->connect()->close();
-        $selected = $_POST['cliente'];
+        if (!empty($_POST['cliente'])){
+            $selected = $_POST['cliente'];
+        }
+        else {
+            $selected = "";
+        }
 
         if ($result->num_rows > 0) {  // Verifica se são retornadas linhas
             // Exibe os dados de cada linha retornada
@@ -47,7 +52,13 @@ class PessoaController
         $result = $pessoas->getPessoas();
         $this->db->connect()->close();
 
-        $selected = $_POST['advogado'];
+        if (!empty($_POST['advogado'])){
+            $selected = $_POST['advogado'];
+        }
+        else {
+            $selected = "";
+        }
+
         if ($result->num_rows > 0) {  // Verifica se são retornadas linhas
             // Exibe os dados de cada linha retornada
             echo " <div class='form-group'>

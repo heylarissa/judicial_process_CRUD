@@ -7,6 +7,12 @@ class Processo {
     private $numero_processo;
     private $arquivo;
 
+    public function __construct()
+    {
+        $this->advogado = new Pessoa();
+        $this->cliente = new Pessoa();
+    }
+
     public function getProcessoId(){
         return $this->id;
     }
