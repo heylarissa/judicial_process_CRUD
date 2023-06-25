@@ -7,7 +7,7 @@ class Pessoa {
     private $endereco;
     private $email;
 
-    public function getPessoaId(){
+    public function getId(){
         return $this->id;
     }
 

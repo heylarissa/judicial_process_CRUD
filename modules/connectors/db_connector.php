@@ -22,6 +22,10 @@ class dbConnector{
         return $this->connection;
     }
 
+    public function execute ($query) {
+        return $this->connection->query($query);
+    }
+
     public function connect (){
         
         $this->connection = new mysqli($this->servername, $this->username, $this->password, $this->database);
