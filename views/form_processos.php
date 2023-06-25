@@ -14,10 +14,10 @@
         <h1>Novo processo</h1>
         <br>
 
-        <form>
+        <form method="POST" action="#">
             <div class="form-group">
                 <label for="exampleFormControlInput1">Número do Processo</label>
-                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
+                <input type="text" class="form-control" id="exampleFormControlInput1" name="numero_processo" placeholder="">
             </div>
             <?php
             require_once "../controllers/pessoa_controller.php";
@@ -26,10 +26,10 @@
 
             $clientes = new PessoaController();
             $clientes->listClientes();
-            
+
             ?>
             <div class="form-check">
-                <input type="checkbox" class="form-control-input" id="exampleFormControlInput1" placeholder="">
+                <input name="arquivo" type="checkbox" class="form-control-input" id="exampleFormControlInput1" placeholder="">
                 <label class="form-check-label" for="flexCheckChecked">
                     Arquivado
                 </label>
@@ -38,6 +38,18 @@
 
         </form>
 
+
 </body>
 
 </html>
+
+<?php
+
+require "../controllers/processo_controller.php";
+
+if (isset($_POST['submit_btn'])) {
+    echo $_POST['advogado'];
+    $processo = new ProcessoController();
+    $processo->createProcesso();
+}
+?>

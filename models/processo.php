@@ -15,7 +15,7 @@ class Processo {
         return $this->advogado;
     }
 
-    public function setAdvogado($id){
+    public function setAdvogado($id){ # corrigir isso Typed property Processo::$advogado must not be accessed before initialization 
         $this->advogado->setId($id);
     }
 

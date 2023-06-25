@@ -19,11 +19,11 @@ class PessoaController {
             // Exibe os dados de cada linha retornada
             echo " <div class='form-group'>
                         <label>Clientes</label>
-                        <select class='form-control'>";
+                        <select  name='cliente' class='form-control'>";
 
             while ($pessoa = $result->fetch_assoc()) {
                 if ($pessoa['cliente'] == true) {
-                    echo "<option value='" . $pessoa["id"] . ">" . $pessoa["nome"] . "</option>";
+                    echo "<optionvalue='" . $pessoa["id"] . ">" . $pessoa["nome"] . "</option>";
                 }
             }
 
@@ -41,7 +41,7 @@ class PessoaController {
             // Exibe os dados de cada linha retornada
             echo " <div class='form-group'>
                         <label>Advogado</label>
-                        <select class='form-control'>";
+                        <select name='advogado' class='form-control'>";
 
             while ($pessoa = $result->fetch_assoc()) {
                 if ($pessoa['cliente'] == false) {
