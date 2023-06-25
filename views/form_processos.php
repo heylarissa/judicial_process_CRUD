@@ -35,7 +35,7 @@
                 <input name="arquivo" type="checkbox" class="form-control-input" id="exampleFormControlInput1" placeholder="">
 
             </div>
-            <input type="submit" name="submit_btn" value="Enviar" class="btn-submit">
+            <input type="submit" name="submit_btn" value="Salvar" class="btn-submit">
 
         </form>
 
