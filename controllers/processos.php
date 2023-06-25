@@ -1,5 +1,5 @@
 <?php
-require "../connectors/db_connector.php";
+require "../modules/connectors/db_connector.php";
 
 class Processo {
     var $connector;
