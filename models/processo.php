@@ -23,7 +23,7 @@ class Processo {
         return $this->cliente;
     }
 
-    public function setClienteId($id){
+    public function setCliente($id){
         $this->cliente->setId($id);
     }
 

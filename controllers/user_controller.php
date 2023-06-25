@@ -1,8 +1,8 @@
 <?php
-require "../modules/connectors/db_connector.php";
+require_once "../modules/connectors/db_connector.php";
 
-require '../models/user.php';
-require '../models/dao/user_dao.php';
+require_once '../models/user.php';
+require_once '../models/dao/user_dao.php';
 
 class UserController {
     var $db;
@@ -28,7 +28,8 @@ class UserController {
                     </tr>";
             }
         } else {
-            echo "<tr><td>Não foram retornados registros.</td>
+            echo "<tr>
+                    <td>Não foram retornados registros.</td>
                     <td></td>
                     <td></td>
                     <td></td>

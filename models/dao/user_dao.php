@@ -44,7 +44,7 @@ class UserDao
                         email = '{$user->getEmail()}',
                         celular = '{$user->getCelular()}',
                         username = '{$user->getUsername()}',
-                        passwd = '{$user->getPasswd()}',
+                        passwd = md5('{$user->getPasswd()}'),
                         pessoa_id = '{$user->getPessoa()->getId()}'
                     WHERE id = '{$user->getPessoa()->getId()}';";
         $this->db->execute($query);

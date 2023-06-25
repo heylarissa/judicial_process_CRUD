@@ -1,7 +1,7 @@
 <?php
-require "../models/dao/pessoa_dao.php";
-include "../models/pessoa.php";
-require "../modules/connectors/db_connector.php";
+require_once "../modules/connectors/db_connector.php";
+require_once "../models/dao/pessoa_dao.php";
+require_once "../models/pessoa.php";
 
 class PessoaController {
     var $db;
@@ -9,6 +9,51 @@ class PessoaController {
     public function __construct()
     {
         $this->db = new dbConnector();
+    }
+    public function listClientes(){
+        $pessoas = new PessoaDao($this->db);
+        $result = $pessoas->getPessoas();
+        $this->db->connect()->close();
+        
+        if ($result->num_rows > 0) {  // Verifica se são retornadas linhas
+            // Exibe os dados de cada linha retornada
+            echo " <div class='form-group'>
+                        <label>Clientes</label>
+                        <select class='form-control'>";
+
+            while ($pessoa = $result->fetch_assoc()) {
+                if ($pessoa['cliente'] == true) {
+                    echo "<option value='" . $pessoa["id"] . ">" . $pessoa["nome"] . "</option>";
+                }
+            }
+
+            echo "  </select>
+                </div>";
+        } else {
+            echo "Não foram retornados registros."; // Não há linhas (registros) retornados
+        }
+    }
+    public function listAdvogados(){
+        $pessoas = new PessoaDao($this->db);
+        $result = $pessoas->getPessoas();
+        $this->db->connect()->close();
+        if ($result->num_rows > 0) {  // Verifica se são retornadas linhas
+            // Exibe os dados de cada linha retornada
+            echo " <div class='form-group'>
+                        <label>Advogado</label>
+                        <select class='form-control'>";
+
+            while ($pessoa = $result->fetch_assoc()) {
+                if ($pessoa['cliente'] == false) {
+                    echo "<option value='" . $pessoa["id"] . ">" . $pessoa["nome"] . "</option>";
+                }
+            }
+
+            echo "  </select>
+                </div>";
+        } else {
+            echo "Não foram retornados registros."; // Não há linhas (registros) retornados
+        }
     }
 
     public function showPessoas() {
@@ -32,5 +77,3 @@ class PessoaController {
         }
     }
 }
-
-?>

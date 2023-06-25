@@ -1,8 +1,8 @@
 <?php
-require "../modules/connectors/db_connector.php";
-require "../models/dao/processo_dao.php";
-include "../models/pessoa.php";
-include "../models/processo.php";
+require_once "../modules/connectors/db_connector.php";
+require_once "../models/dao/processo_dao.php";
+require_once "../models/pessoa.php";
+require_once "../models/processo.php";
 
 class ProcessoController {
     var $db;
@@ -12,7 +12,30 @@ class ProcessoController {
         $this->db = new dbConnector();
     }
 
+    public function createProcesso() {
+        /* Controller que cadastra o processo */
+
+        $advogado = $_POST['advogado'];
+        $cliente = $_POST['cliente'];
+        $numero_processo = $_POST['numero_processo'];
+        $arquivo = $_POST['arquivo'];
+
+
+        $processo = new Processo();
+        $processo->setAdvogado($advogado);
+        $processo->setCliente($cliente);
+        $processo->setNumeroProcesso($numero_processo);
+        $processo->setArquivo($arquivo);
+
+
+        $processoDAO = new ProcessoDao($this->db);
+        $processoDAO->insertProcesso($processo);
+        
+    }
+
     public function showProcessos(){
+        /* Exibe todos os processos */
+
         $processos = new ProcessoDao($this->db);
         $result = $processos->getProcessos();
         $this->db->connect()->close();
