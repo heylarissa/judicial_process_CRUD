@@ -7,6 +7,12 @@ class Tramitacao {
     private $descricao;
     private $data_tramitacao;
 
+    public function __construct()
+    {
+        $this->adv_responsavel = new Pessoa();
+        $this->processo = new Processo();
+    }
+
     public function getId(){
         return $this->id;
     }
