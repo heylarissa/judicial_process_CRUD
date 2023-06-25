@@ -2,23 +2,29 @@
 require "config.ini.php";
 
 class dbConnector{
-    var $servername;
-    var $username;
-    var $password;
-    var $database;
+    private $servername;
+    private $username;
+    private $password;
+    private $database;
 
-    public $connection;
+    private $connection;
 
     public function __construct(){
         $this->servername = DB_SERVER; 
         $this->username = DB_USER;
         $this->password = DB_PASS;
         $this->database = DB_DATABASE;
+
+        $this->connect();
+    }
+
+    public function getConnection () {
+        return $this->connection;
     }
 
     public function connect (){
         
-        $this->connection = new mysqli($this->servername,$this->username,$this->password,$this->database);
+        $this->connection = new mysqli($this->servername, $this->username, $this->password, $this->database);
 
         if (mysqli_connect_error())
 			{

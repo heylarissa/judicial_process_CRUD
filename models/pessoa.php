@@ -11,7 +11,7 @@ class Pessoa {
         return $this->id;
     }
 
-    public function getPessoaNome(){
+    public function getNome(){
         return $this->nome;
     }
 
