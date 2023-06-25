@@ -27,7 +27,7 @@ class PessoaController
             // Exibe os dados de cada linha retornada
             echo " <div class='form-group'>
                         <label>Clientes</label>
-                        <select required name='cliente' class='form-control'>
+                        <select name='cliente' class='form-control' required>
                         <option selected='$selected' value=''>Selecione</option>";
 
             while ($pessoa = $result->fetch_assoc()) {
@@ -63,7 +63,7 @@ class PessoaController
             // Exibe os dados de cada linha retornada
             echo " <div class='form-group'>
                         <label>Advogado</label>
-                        <select name='advogado' class='form-control'>
+                        <select name='advogado' class='form-control' required>
                         <option selected='$selected' value=''>Selecione</option>";
 
             while ($pessoa = $result->fetch_assoc()) {
