@@ -10,7 +10,6 @@
 </head>
 
 <body>
-
     <div class=container>
         <h1>Cadastro de processos</h1>
         <br>
@@ -30,22 +29,9 @@
                 require '../controllers/processos.php';
 
                 $processos = new ProcessoController();
-                $result = $processos->getProcessos();
+                $processos->getProcessos();
 
-                if ($result->num_rows > 0) {  // Verifica se são retornadas linhas
-                    // Exibe os dados de cada linha retornada
-                    while ($row = $result->fetch_assoc()) {
-                        echo "<tr>
-                                <td>" . $row["id"] . "</td>
-                                <td>" . $row["advogado_id"] . "</td>
-                                <td>" . $row["cliente_id"] . "</td>
-                                <td>" . $row["numero_processo"] . "</td>
-                                <td>" . $row["arquivo"] . "</td>
-                            </tr>";
-                    }
-                } else {
-                    echo "Não foram retornados registros."; // Não há linhas (registros) retornados
-                }
+                
                 ?>
             </tbody>
         </table>

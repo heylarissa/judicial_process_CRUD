@@ -1,6 +1,7 @@
 <?php
 require "../modules/connectors/db_connector.php";
 require "../models/processo.php";
+// require "../models/DAO/processo_dao.php";
 
 class ProcessoController {
     var $db;
@@ -12,10 +13,25 @@ class ProcessoController {
     }
 
     public function getProcessos(){
+
         $query = "SELECT * FROM processos";
         $result = $this->db->execute($query);
 
-        return $result;
+        if ($result->num_rows > 0) {  // Verifica se são retornadas linhas
+            // Exibe os dados de cada linha retornada
+            while ($row = $result->fetch_assoc()) {
+                echo "<tr>
+                        <td>" . $row["id"] . "</td>
+                        <td>" . $row["advogado_id"] . "</td>
+                        <td>" . $row["cliente_id"] . "</td>
+                        <td>" . $row["numero_processo"] . "</td>
+                        <td>" . $row["arquivo"] . "</td>
+                    </tr>";
+            }
+        } else {
+            echo "Não foram retornados registros."; // Não há linhas (registros) retornados
+        }
+
     }
 
 }
