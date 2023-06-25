@@ -1,7 +1,8 @@
 <?php
 require "../modules/connectors/db_connector.php";
+require "../models/processo.php";
 
-class Processo {
+class ProcessoController extends Processo{
     var $connector;
     var $connection;
 
@@ -9,7 +10,6 @@ class Processo {
     {
         $this->connector = new dbConnector();
         $this->connection = $this->connector->connect();
-
     }
 
     public function getProcessos(){
@@ -20,7 +20,7 @@ class Processo {
     }
 
     public function deleteProcesso($id){
-        $query = "DELETE FROM minhaTabela WHERE id='$id'";
+        $query = "DELETE FROM processos WHERE id='$id'";
         $result = $this->connection->query($query);
 
         return $result;

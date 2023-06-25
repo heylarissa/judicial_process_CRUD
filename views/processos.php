@@ -29,7 +29,7 @@
                 <?php
                 require '../controllers/processos.php';
 
-                $processos = new Processo();
+                $processos = new ProcessoController();
                 $result = $processos->getProcessos();
 
                 if ($result->num_rows > 0) {  // Verifica se são retornadas linhas
