@@ -21,10 +21,10 @@ class ProcessoController {
             while ($processo = $result->fetch_assoc()) {
                 echo "<tr>
                         <td>" . $processo["id"] . "</td>
-                        <td>" . $processo["advogado_id"] . "</td>
-                        <td>" . $processo["cliente_id"] . "</td>
+                        <td>" . $processo["adv"] . "</td>
+                        <td>" . $processo["cliente"] . "</td>
                         <td>" . $processo["numero_processo"] . "</td>
-                        <td>" . $processo["arquivo"] . "</td>
+                        <td>" . $processo["arquivado"] . "</td>
                     </tr>";
             }
         } else {

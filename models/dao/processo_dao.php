@@ -31,7 +31,11 @@ class ProcessoDao
 
     public function getProcessos()
     {
-        $query = "SELECT * FROM processos
+        $query = "SELECT cliente.nome cliente, advogado.nome adv, processos.* , 
+                    CASE WHEN processos.arquivo = TRUE THEN 'Sim'
+                        ELSE 'Não'
+                    END as arquivado
+                    FROM processos
                     LEFT JOIN pessoas cliente on cliente.id = processos.cliente_id
                     LEFT JOIN pessoas advogado on advogado.id = processos.advogado_id;";
         return $this->db->execute($query);
