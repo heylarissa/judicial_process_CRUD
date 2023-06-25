@@ -27,7 +27,7 @@ class PessoaController
             // Exibe os dados de cada linha retornada
             echo " <div class='form-group'>
                         <label>Clientes</label>
-                        <select  name='cliente' class='form-control'>
+                        <select required name='cliente' class='form-control'>
                         <option selected='$selected' value=''>Selecione</option>";
 
             while ($pessoa = $result->fetch_assoc()) {
