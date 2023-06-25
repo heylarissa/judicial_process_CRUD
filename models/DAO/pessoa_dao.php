@@ -41,8 +41,5 @@ class PessoaDao {
     public function deletePessoa (Pessoa $pessoa){
         $query = "DELETE FROM pessoas WHERE id= '{$pessoa->getId()}'";
         $this->db->execute($query);
-
     }
 }
-
-?>

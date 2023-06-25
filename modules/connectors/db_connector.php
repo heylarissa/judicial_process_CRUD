@@ -23,7 +23,8 @@ class dbConnector{
     }
 
     public function execute ($query) {
-        return $this->connection->query($query);
+        $results = $this->connection->query($query);
+        return $results;
     }
 
     public function connect (){
@@ -41,4 +42,3 @@ class dbConnector{
     }
 
 }
-?>

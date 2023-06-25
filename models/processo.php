@@ -3,8 +3,8 @@ require "pessoa.php";
 
 class Processo {
     private $id;
-    private Pessoa $advogado_id;
-    private Pessoa $cliente_id;
+    private Pessoa $advogado;
+    private Pessoa $cliente;
     private $numero_processo;
     private $arquivo;
 
@@ -12,19 +12,19 @@ class Processo {
         return $this->id;
     }
     
-    public function getAdvogadoId(){
-        return $this->advogado_id;
+    public function getAdvogado():Pessoa{
+        return $this->advogado;
     }
 
-    public function setAdvogadoId($id){
-        $this->advogado_id = $id;
+    public function setAdvogado($id){
+        $this->advogado->setId($id);
     }
-    public function getClienteId(){
-        return $this->cliente_id;
+    public function getCliente():Pessoa{
+        return $this->cliente;
     }
 
     public function setClienteId($id){
-        $this->cliente_id = $id;
+        $this->cliente->setId($id);
     }
 
     public function getNumeroProcesso(){
