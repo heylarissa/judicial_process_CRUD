@@ -3,27 +3,35 @@ require_once "../modules/connectors/db_connector.php";
 require_once "../models/dao/pessoa_dao.php";
 require_once "../models/pessoa.php";
 
-class PessoaController {
+class PessoaController
+{
     var $db;
 
     public function __construct()
     {
         $this->db = new dbConnector();
     }
-    public function listClientes(){
+    public function listClientes()
+    {
         $pessoas = new PessoaDao($this->db);
         $result = $pessoas->getPessoas();
         $this->db->connect()->close();
-        
+        $selected = "";
+
         if ($result->num_rows > 0) {  // Verifica se são retornadas linhas
             // Exibe os dados de cada linha retornada
             echo " <div class='form-group'>
                         <label>Clientes</label>
-                        <select  name='cliente' class='form-control'>";
+                        <select  name='cliente' class='form-control'>
+                        <option selected='selected' value=''>Selecione</option>";
 
             while ($pessoa = $result->fetch_assoc()) {
                 if ($pessoa['cliente'] == true) {
-                    echo "<optionvalue='" . $pessoa["id"] . ">" . $pessoa["nome"] . "</option>";
+                    if ($selected == $pessoa["nome"]) {
+                        echo "<option selected='selected' value='$pessoa[id]'>" . $pessoa["nome"] . "</option>";
+                    } else {
+                        echo "<option value='$pessoa[id]'>" . $pessoa["nome"] . "</option>";
+                    }
                 }
             }
 
@@ -33,7 +41,8 @@ class PessoaController {
             echo "Não foram retornados registros."; // Não há linhas (registros) retornados
         }
     }
-    public function listAdvogados(){
+    public function listAdvogados()
+    {
         $pessoas = new PessoaDao($this->db);
         $result = $pessoas->getPessoas();
         $this->db->connect()->close();
@@ -41,11 +50,18 @@ class PessoaController {
             // Exibe os dados de cada linha retornada
             echo " <div class='form-group'>
                         <label>Advogado</label>
-                        <select name='advogado' class='form-control'>";
+                        <select name='advogado' class='form-control'>
+                        <option selected='selected' value=''>Selecione</option>";
 
+            $selected = "";
             while ($pessoa = $result->fetch_assoc()) {
                 if ($pessoa['cliente'] == false) {
-                    echo "<option value='" . $pessoa["id"] . ">" . $pessoa["nome"] . "</option>";
+                    if ($selected == $pessoa["nome"]) {
+                        echo "<option selected='selected' value='$pessoa[id]'>" . $pessoa["nome"] . "</option>";
+                    } else {
+                        echo "<option value='$pessoa[id]'>" . $pessoa["nome"] . "</option>";
+                    }
+                    // echo "<option value='" . $pessoa["nome"] . ">" . $pessoa["nome"] . "</option>";
                 }
             }
 
@@ -56,7 +72,8 @@ class PessoaController {
         }
     }
 
-    public function showPessoas() {
+    public function showPessoas()
+    {
         $pessoas = new PessoaDao($this->db);
         $result = $pessoas->getPessoas();
         $this->db->connect()->close();
