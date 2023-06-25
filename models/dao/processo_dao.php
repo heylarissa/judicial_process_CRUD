@@ -22,13 +22,18 @@ class ProcessoDao
 
     public function selectProcesso($id)
     {
-        $query = "SELECT * FROM processos WHERE id = '{$id}';";
+        $query = "SELECT * FROM processos
+                    LEFT JOIN pessoas cliente on cliente.id = processos.cliente_id
+                    LEFT JOIN pessoas advogado on advogado.id = processos.advogado_id 
+                    WHERE id = '{$id}';";
         return $this->db->execute($query);
     }
 
     public function getProcessos()
     {
-        $query = "SELECT * FROM processos;";
+        $query = "SELECT * FROM processos
+                    LEFT JOIN pessoas cliente on cliente.id = processos.cliente_id
+                    LEFT JOIN pessoas advogado on advogado.id = processos.advogado_id;";
         return $this->db->execute($query);
     }
 

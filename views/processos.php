@@ -29,7 +29,7 @@
                 require '../controllers/processo_controller.php';
 
                 $processos = new ProcessoController();
-                $processos->getProcessos();
+                $processos->showProcessos();
 
                 
                 ?>
