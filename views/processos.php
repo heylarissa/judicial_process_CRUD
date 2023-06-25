@@ -12,7 +12,7 @@
 <body>
 
     <div class=container>
-        <h1>Consulta do ID</h1>
+        <h1>Cadastro de processos</h1>
         <br>
         <table class='table table-dark table-striped table-bordered table-hover'>
             <thead>
