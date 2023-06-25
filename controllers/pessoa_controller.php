@@ -16,10 +16,9 @@ class PessoaController
         $pessoas = new PessoaDao($this->db);
         $result = $pessoas->getPessoas();
         $this->db->connect()->close();
-        if (!empty($_POST['cliente'])){
+        if (!empty($_POST['cliente'])) {
             $selected = $_POST['cliente'];
-        }
-        else {
+        } else {
             $selected = "";
         }
 
@@ -35,7 +34,7 @@ class PessoaController
                     if ($selected == $pessoa["id"]) {
                         echo "<option selected='$selected' value='$pessoa[id]'>" . $pessoa["nome"] . "</option>";
                     } else {
-                        echo "<option value='".$pessoa['id']."'>" . $pessoa["nome"] . "</option>";
+                        echo "<option value='" . $pessoa['id'] . "'>" . $pessoa["nome"] . "</option>";
                     }
                 }
             }
@@ -52,10 +51,9 @@ class PessoaController
         $result = $pessoas->getPessoas();
         $this->db->connect()->close();
 
-        if (!empty($_POST['advogado'])){
+        if (!empty($_POST['advogado'])) {
             $selected = $_POST['advogado'];
-        }
-        else {
+        } else {
             $selected = "";
         }
 
