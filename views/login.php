@@ -11,9 +11,11 @@
 </head>
 
 <body>
-    <div class="login">
-        <a href="javascript:history.back()">Go Back</a>
 
+    <div class="login">
+        <?php
+        include "components/go_back.php";
+        ?>
         <h1>Login</h1>
         <form class="login-form" action="processos.php" method="post">
             <input label="Username" required placeholder="Usuário">
