@@ -12,7 +12,7 @@ class PessoaDao {
     }
 
     public function insertPessoa (Pessoa $pessoa){
-        $query = "INSERT INTO produtos (nome, cpf_cnpj, endereco, email) 
+        $query = "INSERT INTO pessoas (nome, cpf_cnpj, endereco, email) 
                 VALUES ('{$pessoa->getNome()}', '{$pessoa->getCpfCnpj()}', '{$pessoa->getEndereco()}', '{$pessoa->getEmail()}');";  
 
         $this->db->execute($query);
