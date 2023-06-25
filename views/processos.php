@@ -26,7 +26,7 @@
 
             <tbody>
                 <?php
-                require '../controllers/processos.php';
+                require '../controllers/processo_controller.php';
 
                 $processos = new ProcessoController();
                 $processos->getProcessos();

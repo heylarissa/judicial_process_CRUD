@@ -1,7 +1,6 @@
 <?php
 require "../modules/connectors/db_connector.php";
-require "../models/processo.php";
-// require "../models/DAO/processo_dao.php";
+require "../models/dao/processo_dao.php";
 
 class ProcessoController {
     var $db;

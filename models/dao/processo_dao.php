@@ -1,7 +1,6 @@
 <?php
-require "../pessoa.php";
-require "../processo.php";
-require "../../modules/connectors/db_connector.php";
+include "../models/pessoa.php";
+include "../models/processo.php";
 
 class ProcessoDao
 {

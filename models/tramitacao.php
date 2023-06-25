@@ -1,6 +1,4 @@
 <?php
-require "pessoa.php";
-require "processo.php";
 
 class Tramitacao {
     private $id;
