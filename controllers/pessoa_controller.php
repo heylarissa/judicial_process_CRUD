@@ -16,21 +16,21 @@ class PessoaController
         $pessoas = new PessoaDao($this->db);
         $result = $pessoas->getPessoas();
         $this->db->connect()->close();
-        $selected = "";
+        $selected = $_POST['cliente'];
 
         if ($result->num_rows > 0) {  // Verifica se são retornadas linhas
             // Exibe os dados de cada linha retornada
             echo " <div class='form-group'>
                         <label>Clientes</label>
                         <select  name='cliente' class='form-control'>
-                        <option selected='selected' value=''>Selecione</option>";
+                        <option selected='$selected' value=''>Selecione</option>";
 
             while ($pessoa = $result->fetch_assoc()) {
                 if ($pessoa['cliente'] == true) {
-                    if ($selected == $pessoa["nome"]) {
-                        echo "<option selected='selected' value='$pessoa[id]'>" . $pessoa["nome"] . "</option>";
+                    if ($selected == $pessoa["id"]) {
+                        echo "<option selected='$selected' value='$pessoa[id]'>" . $pessoa["nome"] . "</option>";
                     } else {
-                        echo "<option value='$pessoa[id]'>" . $pessoa["nome"] . "</option>";
+                        echo "<option value='".$pessoa['id']."'>" . $pessoa["nome"] . "</option>";
                     }
                 }
             }
@@ -46,22 +46,22 @@ class PessoaController
         $pessoas = new PessoaDao($this->db);
         $result = $pessoas->getPessoas();
         $this->db->connect()->close();
+
+        $selected = $_POST['advogado'];
         if ($result->num_rows > 0) {  // Verifica se são retornadas linhas
             // Exibe os dados de cada linha retornada
             echo " <div class='form-group'>
                         <label>Advogado</label>
                         <select name='advogado' class='form-control'>
-                        <option selected='selected' value=''>Selecione</option>";
+                        <option selected='$selected' value=''>Selecione</option>";
 
-            $selected = "";
             while ($pessoa = $result->fetch_assoc()) {
                 if ($pessoa['cliente'] == false) {
                     if ($selected == $pessoa["nome"]) {
-                        echo "<option selected='selected' value='$pessoa[id]'>" . $pessoa["nome"] . "</option>";
+                        echo "<option selected='$selected' value='$pessoa[id]'>" . $pessoa["nome"] . "</option>";
                     } else {
                         echo "<option value='$pessoa[id]'>" . $pessoa["nome"] . "</option>";
                     }
-                    // echo "<option value='" . $pessoa["nome"] . ">" . $pessoa["nome"] . "</option>";
                 }
             }
 

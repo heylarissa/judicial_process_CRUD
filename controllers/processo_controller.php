@@ -15,18 +15,20 @@ class ProcessoController {
     public function createProcesso() {
         /* Controller que cadastra o processo */
 
-        $advogado = $_POST['advogado'];
-        $cliente = $_POST['cliente'];
-        $numero_processo = $_POST['numero_processo'];
-        $arquivo = $_POST['arquivo'];
-
+        $advogado = $_POST['advogado']."<br>";
+        echo $advogado;
+        $cliente = $_POST['cliente']."<br>";
+        echo $cliente;
+        $numero_processo = $_POST['numero_processo']."<br>";
+        echo $numero_processo;
+        $arquivo = $_POST['arquivo']."<br>";
+        echo $arquivo;
 
         $processo = new Processo();
         $processo->setAdvogado($advogado);
         $processo->setCliente($cliente);
         $processo->setNumeroProcesso($numero_processo);
         $processo->setArquivo($arquivo);
-
 
         $processoDAO = new ProcessoDao($this->db);
         $processoDAO->insertProcesso($processo);

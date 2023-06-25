@@ -48,7 +48,6 @@
 require "../controllers/processo_controller.php";
 
 if (isset($_POST['submit_btn'])) {
-    echo $_POST['advogado'];
     $processo = new ProcessoController();
     $processo->createProcesso();
 }
