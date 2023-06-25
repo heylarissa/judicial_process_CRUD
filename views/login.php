@@ -20,12 +20,6 @@
             <input label="Password" type="Password" required placeholder="Senha" placeholder="sua senha" required>
             <input type="submit" name="submit_btn" value="Enviar" class="btn-submit">
         </form>
-        <?php
-        if (isset($_POST['submit_btn'])) {
-            echo "postei";
-        }
-        ?>
-
     </div>
 </body>
 
