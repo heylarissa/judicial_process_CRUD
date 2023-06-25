@@ -59,9 +59,22 @@
 
 <?php
 require_once "../controllers/user_controller.php";
+require_once "../controllers/pessoa_controller.php";
 
 if (isset($_POST['register_btn'])) {
-    $processo = new ProcessoController();
-    $processo->createProcesso();
+    $psswd = $_POST['senha'];
+    $psswd_conf = $_POST['confirme_senha'];
+
+
+    if($psswd != $psswd_conf){
+        echo "As senhas não são compatíveis";
+    }
+    else {
+        echo "ok";
+
+        $user = new UserController();
+
+    }
+
 }
 ?>
