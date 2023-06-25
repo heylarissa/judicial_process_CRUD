@@ -60,7 +60,7 @@ abstract class User {
         $this->passwd = $passwd;
     }
 
-    public function getPessoa() {
+    public function getPessoa():Pessoa {
         return $this->pessoa;
     }
     public function setPessoa(Pessoa $pessoa){
