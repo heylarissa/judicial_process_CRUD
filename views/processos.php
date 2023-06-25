@@ -13,6 +13,7 @@
     <div class=container>
         <h1>Cadastro de processos</h1>
         <br>
+        <a href="form_processos.php"><button>Cadastrar processo</button></a>
         <table class='table table-dark table-striped table-bordered table-hover'>
             <thead>
                 <tr>
