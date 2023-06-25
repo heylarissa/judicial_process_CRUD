@@ -11,6 +11,26 @@ class PessoaController
     {
         $this->db = new dbConnector();
     }
+
+    public function createPessoa($is_cliente) {
+        $email = $_POST['email'];
+        $cpf_cnpj = $_POST['cpf'];
+        $nome = $_POST['nome'];
+
+        $pessoa = new Pessoa();
+        $pessoa->setEmail($email);
+        $pessoa->setCpfCnpj($cpf_cnpj);
+        $pessoa->setNome($nome);
+        $pessoa->setCliente($is_cliente);
+        
+        
+        $pessoaDAO = new PessoaDAO($this->db);
+        $new_pessoa_id = $pessoaDAO->insertPessoa($pessoa);
+        $this->db->connect()->close();
+
+        return $new_pessoa_id;
+    }
+
     public function listClientes()
     {
         $pessoas = new PessoaDao($this->db);

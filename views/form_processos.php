@@ -16,8 +16,8 @@
 
         <form method="POST" action="#">
             <div class="form-group">
-                <label for="exampleFormControlInput1">Número do Processo</label>
-                <input required type="text" class="form-control" id="exampleFormControlInput1" name="numero_processo" placeholder="">
+                <label for="numero_processo">Número do Processo</label>
+                <input required type="text" class="form-control" id="numero_processo_id" name="numero_processo" placeholder="">
             </div>
             <?php
             require_once "../controllers/pessoa_controller.php";
@@ -32,7 +32,7 @@
                 <label class="form-check-label" for="flexCheckChecked">
                     Arquivado
                 </label>
-                <input name="arquivo" type="checkbox" class="form-control-input" id="exampleFormControlInput1" placeholder="">
+                <input name="arquivo" type="checkbox" class="form-control-input" id="arquivo" placeholder="">
 
             </div>
             <input type="submit" name="submit_btn" value="Salvar" class="btn-submit">

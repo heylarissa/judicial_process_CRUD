@@ -10,12 +10,10 @@ class UserDao
 
     public function insertUser(User $user)
     {
-        $query = "INSERT INTO auth_user (first_name, last_name, 
-                                        email, celular, 
+        $query = "INSERT INTO auth_user (email, celular, 
                                         username, passwd, 
                                         pessoa_id) 
-                VALUES ('{$user->getFirstName()}', '{$user->getLastName()}', 
-                        '{$user->getEmail()}', '{$user->getCelular()}', 
+                VALUES ('{$user->getEmail()}', '{$user->getCelular()}', 
                         '{$user->getUsername()}', '{$user->getPasswd()}', 
                         '{$user->getPessoa()->getId()}');";
 
@@ -39,9 +37,7 @@ class UserDao
     public function updateUser(User $user)
     {
         $query = "UPDATE auth_user
-                    SET first_name = '{$user->getFirstName()}',
-                        last_name = '{$user->getLastName()}',
-                        email = '{$user->getEmail()}',
+                    SET email = '{$user->getEmail()}',
                         celular = '{$user->getCelular()}',
                         username = '{$user->getUsername()}',
                         passwd = md5('{$user->getPasswd()}'),

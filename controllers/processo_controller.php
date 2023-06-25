@@ -24,7 +24,6 @@ class ProcessoController {
             $arquivo = 1;
         }
         
-
         $processo = new Processo();
         $processo->setAdvogado($advogado);
         $processo->setCliente($cliente);
@@ -33,7 +32,8 @@ class ProcessoController {
 
         $processoDAO = new ProcessoDao($this->db);
         $processoDAO->insertProcesso($processo);
-        
+        $this->db->connect()->close();
+
     }
 
     public function showProcessos(){

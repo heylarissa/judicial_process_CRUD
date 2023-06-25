@@ -8,10 +8,17 @@ class PessoaDao {
     }
 
     public function insertPessoa (Pessoa $pessoa){
-        $query = "INSERT INTO pessoas (nome, cpf_cnpj, endereco, email) 
-                VALUES ('{$pessoa->getNome()}', '{$pessoa->getCpfCnpj()}', '{$pessoa->getEndereco()}', '{$pessoa->getEmail()}');";  
+        $query = "INSERT INTO pessoas (nome, cpf_cnpj, endereco, email, cliente) 
+                VALUES ('{$pessoa->getNome()}', '{$pessoa->getCpfCnpj()}', '{$pessoa->getEndereco()}', '{$pessoa->getEmail()}', '{$pessoa->getIsCliente()}');";  
 
-        $this->db->execute($query);
+        $result = $this->db->execute($query);
+        if ($result) {
+            echo "Success";
+        }
+        else {
+            echo "Failure in query: ".$query;
+        }
+        return mysqli_insert_id($this->db->getConnection());
     }
 
     public function selectPessoa ($id) {

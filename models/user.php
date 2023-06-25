@@ -1,14 +1,17 @@
 <?php
 
-abstract class User {
+class User {
     private $id;
-    private $first_name;
-    private $last_name;
     private $email;
     private $celular;
     private $username;
     private $passwd;
     private Pessoa $pessoa;
+
+    public function __construct()
+    {
+        $this->pessoa = new Pessoa();
+    }
 
     public function getUserId(){
         return $this->id;
@@ -16,20 +19,6 @@ abstract class User {
 
     public function setUserId($id){
         $this->id = $id;
-    }
-
-    public function getFirstName(){
-        return $this->first_name;
-    }
-    public function setFirstName($first_name){
-        $this->first_name = $first_name;
-    }
-
-    public function getLastName(){
-        return $this->last_name;
-    }
-    public function setLastName($last_name){
-        $this->last_name = $last_name;
     }
 
     public function getEmail(){
@@ -63,8 +52,8 @@ abstract class User {
     public function getPessoa():Pessoa {
         return $this->pessoa;
     }
-    public function setPessoa(Pessoa $pessoa){
-        $this->pessoa = $pessoa;
+    public function setPessoa($pessoa_id){
+        $this->pessoa->setId($pessoa_id);
     }
 
 }

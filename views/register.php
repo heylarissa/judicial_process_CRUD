@@ -65,14 +65,16 @@ if (isset($_POST['register_btn'])) {
     $psswd = $_POST['senha'];
     $psswd_conf = $_POST['confirme_senha'];
 
-
     if($psswd != $psswd_conf){
         echo "As senhas não são compatíveis";
     }
     else {
-        echo "ok";
+
+        $pessoa = new PessoaController();
+        $pessoa_id = $pessoa->createPessoa(0);
 
         $user = new UserController();
+        $user->createUser($pessoa_id);
 
     }
 
