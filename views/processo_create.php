@@ -14,7 +14,7 @@ require "components/logout.php";
 </head>
 
 <body>
-    <div class=container>
+    <div class="container">
         <?php
         include "components/go_back.php";
         ?>
@@ -29,10 +29,10 @@ require "components/logout.php";
             <?php
             require_once "../controllers/pessoa_controller.php";
             $advogados = new PessoaController();
-            $advogados->listAdvogados();
+            $advogados->listAdvogados("Selecione");
 
             $clientes = new PessoaController();
-            $clientes->listClientes();
+            $clientes->listClientes("Selecione");
 
             ?>
             <div class="form-check">

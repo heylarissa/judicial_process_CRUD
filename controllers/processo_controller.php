@@ -27,6 +27,8 @@ class ProcessoController
             $processo->setCliente($processo_array['cliente_id']);
             $processo->setNumeroProcesso($processo_array['numero_processo']);
             $processo->setArquivo($processo_array['arquivo']);
+
+            return $processo;
         } else {
             echo "Processo não encontrado";
         }

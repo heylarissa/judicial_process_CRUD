@@ -12,7 +12,8 @@ class PessoaController
         $this->db = new dbConnector();
     }
 
-    public function createPessoa($is_cliente) {
+    public function createPessoa($is_cliente)
+    {
         $email = $_POST['email'];
         $cpf_cnpj = $_POST['cpf'];
         $nome = $_POST['nome'];
@@ -22,8 +23,8 @@ class PessoaController
         $pessoa->setCpfCnpj($cpf_cnpj);
         $pessoa->setNome($nome);
         $pessoa->setCliente($is_cliente);
-        
-        
+
+
         $pessoaDAO = new PessoaDAO($this->db);
         $new_pessoa_id = $pessoaDAO->insertPessoa($pessoa);
         $this->db->connect()->close();
@@ -31,28 +32,24 @@ class PessoaController
         return $new_pessoa_id;
     }
 
-    public function listClientes()
+    public function listClientes($selected)
     {
         $pessoas = new PessoaDao($this->db);
         $result = $pessoas->getPessoas();
         $this->db->connect()->close();
-        if (!empty($_POST['cliente'])) {
-            $selected = $_POST['cliente'];
-        } else {
-            $selected = "";
-        }
 
         if ($result->num_rows > 0) {  // Verifica se são retornadas linhas
             // Exibe os dados de cada linha retornada
             echo " <div class='form-group'>
                         <label>Clientes</label>
-                        <select name='cliente' class='form-control' required>
-                        <option selected='$selected' value=''>Selecione</option>";
+                        <select name='cliente' class='form-control' required>";
 
             while ($pessoa = $result->fetch_assoc()) {
                 if ($pessoa['cliente'] == true) {
-                    if ($selected == $pessoa["id"]) {
-                        echo "<option selected='$selected' value='$pessoa[id]'>" . $pessoa["nome"] . "</option>";
+                    if ($selected == "Selecione") {
+                        echo "<option selected value='0'>Selecione</option>";
+                    } elseif ($selected == $pessoa["id"]) {
+                        echo "<option selected value='$pessoa[id]'>" . $pessoa["nome"] . "</option>";
                     } else {
                         echo "<option value='" . $pessoa['id'] . "'>" . $pessoa["nome"] . "</option>";
                     }
@@ -65,29 +62,24 @@ class PessoaController
             echo "Não foram retornados registros."; // Não há linhas (registros) retornados
         }
     }
-    public function listAdvogados()
+    public function listAdvogados($selected)
     {
         $pessoas = new PessoaDao($this->db);
         $result = $pessoas->getPessoas();
         $this->db->connect()->close();
 
-        if (!empty($_POST['advogado'])) {
-            $selected = $_POST['advogado'];
-        } else {
-            $selected = "";
-        }
-
         if ($result->num_rows > 0) {  // Verifica se são retornadas linhas
             // Exibe os dados de cada linha retornada
             echo " <div class='form-group'>
                         <label>Advogado</label>
-                        <select name='advogado' class='form-control' required>
-                        <option selected='$selected' value=''>Selecione</option>";
+                        <select name='advogado' class='form-control' required>";
 
             while ($pessoa = $result->fetch_assoc()) {
                 if ($pessoa['cliente'] == false) {
-                    if ($selected == $pessoa["nome"]) {
-                        echo "<option selected='$selected' value='$pessoa[id]'>" . $pessoa["nome"] . "</option>";
+                    if ($selected == "Selecione") {
+                        echo "<option selected value='0'>Selecione</option>";
+                    } elseif ($selected == $pessoa["nome"]) {
+                        echo "<option selected value='$pessoa[id]'>" . $pessoa["nome"] . "</option>";
                     } else {
                         echo "<option value='$pessoa[id]'>" . $pessoa["nome"] . "</option>";
                     }
@@ -117,8 +109,8 @@ class PessoaController
                         <td>" . $pessoa["endereco"] . "</td>
                         <td>" . $pessoa["email"] . "</td>
                         <td>
-                            <a href='pessoa_detail.php?id=" . $pessoa["id"] . "'>Editar</a>
-                            <a href='pessoa_delete.php?id=" . $pessoa["id"] . "'>Excluir</a>
+                            <a href='processo_detail.php?id=" . $pessoa["id"] . "'>Editar</a>
+                            <a href='processo_delete.php?id=" . $pessoa["id"] . "'>Excluir</a>
                         </td>
                     </tr>";
             }

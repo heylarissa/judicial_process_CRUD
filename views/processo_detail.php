@@ -1,10 +1,14 @@
-<?php 
+<?php
 require_once "../controllers/processo_controller.php";
+require_once "../controllers/pessoa_controller.php";
 
 $id = $_GET['id'];
 
 $controller = new ProcessoController();
 $processo = $controller->detailProcesso($id);
+
+$controller_advogados = new PessoaController();
+$controller_clientes = new PessoaController();
 
 ?>
 <!DOCTYPE html>
@@ -19,6 +23,43 @@ $processo = $controller->detailProcesso($id);
 </head>
 
 <body>
+    <div class="container">
+        <h1>Editar processo</h1>
+        <form method='POST' action='#'>
+            <div class="form-group">
+                <label for="numero_processo">Número do processo</label>
+                <input type="text" class="form-control" name="numero_processo" value="<?php echo $processo->getNumeroProcesso() ?>">
+            </div>
+            <br>
+            <div class='form-group'>
 
+                <?php
+                $controller_advogados->listAdvogados($processo->getAdvogado()->getId());
+
+                ?>
+            </div>
+            <div class='form-group'>
+
+                <?php
+                $controller_clientes->listClientes($processo->getCliente()->getId());
+                ?>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label" for="flexCheckChecked">
+                    Arquivado
+                </label>
+                <input name="arquivo" type="checkbox" class="form-control-input" id="arquivo">
+            </div>
+            <input type="submit" name="edit_btn" value="Salvar" class="btn-submit">
+            <?php
+
+            if (isset($_POST['edit_btn'])) {
+                echo "ok";
+            }
+
+            ?>
+        </form>
+    </div>
 </body>
+
 </html>
