@@ -17,7 +17,10 @@ class Processo {
     {
         return $this->id;
     }
-    
+    public function setProcessoId($id)
+    {
+        $this->id=$id;
+    }
     public function getAdvogado():Pessoa
     {
         return $this->advogado;

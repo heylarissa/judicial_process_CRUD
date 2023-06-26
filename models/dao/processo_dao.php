@@ -54,12 +54,12 @@ class ProcessoDao
     public function updateProcesso(Processo $processo)
     {
         $query = "UPDATE processos
-                    SET advogado_id = '{$processo->getAdvogado()->getId()}',
-                        cliente_id = '{$processo->getCliente()->getId()}',
+                    SET advogado_id = {$processo->getAdvogado()->getId()},
+                        cliente_id = {$processo->getCliente()->getId()},
                         numero_processo = '{$processo->getNumeroProcesso()}',
-                        arquivo = '{$processo->getArquivo()}',
-                    WHERE id = '{$processo->getProcessoId()}';";
-        $this->db->execute($query);
+                        arquivo = {$processo->getArquivo()}
+                    WHERE id = {$processo->getProcessoId()};";
+        return $this->db->execute($query);
     }
 
     public function deleteProcesso(Processo $processo)

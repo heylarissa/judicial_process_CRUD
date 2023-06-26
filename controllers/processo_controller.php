@@ -13,6 +13,24 @@ class ProcessoController
         $this->db = new dbConnector();
     }
 
+    public function editProcesso(Processo $processo){
+        $processo->setAdvogado($_POST['advogado']);
+        $processo->setCliente($_POST['cliente']);
+        $arquivo = 0;
+        if (!empty($_POST['arquivo'])) {
+            $arquivo = 1;
+        }
+        $processo->setArquivo($arquivo);
+
+        $processo_dao = new ProcessoDao($this->db);
+        $result = $processo_dao->updateProcesso($processo);
+
+        if ($result){
+            echo "<br><span class='success-message'>Processo atualizado com sucesso</span>";
+        }
+
+    }
+
     public function detailProcesso($id)
     {
         $processo_dao = new ProcessoDao($this->db);
@@ -23,6 +41,7 @@ class ProcessoController
         if ($result->num_rows == 1) {
             $processo_array = $result->fetch_assoc();
             
+            $processo->setProcessoId($id);
             $processo->setAdvogado($processo_array['advogado_id']);
             $processo->setCliente($processo_array['cliente_id']);
             $processo->setNumeroProcesso($processo_array['numero_processo']);

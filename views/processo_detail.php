@@ -28,7 +28,7 @@ $controller_clientes = new PessoaController();
         <form method='POST' action='#'>
             <div class="form-group">
                 <label for="numero_processo">Número do processo</label>
-                <input type="text" class="form-control" name="numero_processo" value="<?php echo $processo->getNumeroProcesso() ?>">
+                <input disabled ="text" class="form-control" name="numero_processo" value="<?php echo $processo->getNumeroProcesso() ?>">
             </div>
             <br>
             <div class='form-group'>
@@ -38,23 +38,26 @@ $controller_clientes = new PessoaController();
 
                 ?>
             </div>
+            <br>
             <div class='form-group'>
 
                 <?php
                 $controller_clientes->listClientes($processo->getCliente()->getId());
                 ?>
             </div>
+            <br>
             <div class="form-check">
                 <label class="form-check-label" for="flexCheckChecked">
                     Arquivado
                 </label>
                 <input name="arquivo" type="checkbox" class="form-control-input" id="arquivo">
             </div>
+            <br>
             <input type="submit" name="edit_btn" value="Salvar" class="btn-submit">
             <?php
 
             if (isset($_POST['edit_btn'])) {
-                echo "ok";
+                $controller->editProcesso($processo);
             }
 
             ?>
