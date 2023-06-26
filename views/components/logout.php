@@ -1,6 +1,6 @@
 <?php
 echo "<form method='POST'>
-        <input type='submit' name='logout' value='LogOut'>
+        <input class='logout-juris' type='submit' name='logout' value='LogOut'>
     </form>";
 if (isset($_POST['logout'])) {
     if (isset($_SESSION['login'])) {

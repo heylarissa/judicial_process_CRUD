@@ -24,6 +24,24 @@ body {
     overflow-x: hidden;
 }
 
+.logout-juris {
+    background: none;
+    border: 1px solid white;
+    margin-left: 40px;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+.logout-juris:hover {
+    background:var(--coral);
+    border: 1px solid white;
+    margin-left: 40px;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+.menu-juris {
+    width: 100%;
+    display: flex;
+}
 .name {
     font-size: 40px;
     font-weight: 600;
@@ -39,7 +57,7 @@ body {
 #main {
     transition: margin-left .5s;
     position: absolute;
-    top: 50px;
+    top: 70px;
     width: 100%;
     display: flex;
     flex-direction: column;

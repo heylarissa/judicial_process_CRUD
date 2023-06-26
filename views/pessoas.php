@@ -15,7 +15,10 @@ require "components/auth.php";
 </head>
 
 <body>
-    <div class=container>
+    <?php
+    require 'components/juris-nav.php';
+    ?>
+    <div id="main" class=container>
         <h1>Cadastro de pessoas</h1>
         <br>
         <table class='table table-dark table-striped table-bordered table-hover'>
