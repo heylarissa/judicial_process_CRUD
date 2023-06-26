@@ -13,6 +13,14 @@ class ProcessoController
         $this->db = new dbConnector();
     }
 
+    public function deleteProcesso ($id){
+        $processo_dao = new ProcessoDao($this->db);
+        $result = $processo_dao->deleteProcesso($id);
+        if ($result){
+            echo "<br><span class='success-message'>Processo excluído com sucesso</span>";
+        }
+    }
+
     public function editProcesso(Processo $processo){
         $processo->setAdvogado($_POST['advogado']);
         $processo->setCliente($_POST['cliente']);
@@ -28,7 +36,6 @@ class ProcessoController
         if ($result){
             echo "<br><span class='success-message'>Processo atualizado com sucesso</span>";
         }
-
     }
 
     public function detailProcesso($id)

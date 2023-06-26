@@ -1,6 +1,7 @@
 <?php
 require "components/auth.php";
 require "components/logout.php";
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -47,3 +48,4 @@ require "components/logout.php";
 </body>
 
 </html>
+

@@ -62,9 +62,9 @@ class ProcessoDao
         return $this->db->execute($query);
     }
 
-    public function deleteProcesso(Processo $processo)
+    public function deleteProcesso($id)
     {
-        $query = "DELETE FROM processos WHERE id= '{$processo->getProcessoId()}'";
-        $this->db->execute($query);
+        $query = "DELETE FROM processos WHERE id= '{$id}'";
+        return $this->db->execute($query);
     }
 }
