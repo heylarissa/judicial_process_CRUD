@@ -18,9 +18,9 @@ require "components/auth.php";
 </head>
 
 <body>
- <?php
-require 'components/juris-nav.php';
- ?>
+    <?php
+    require 'components/juris-nav.php';
+    ?>
     <div id="main" class=container>
         <h1>Cadastro de processos</h1>
         <br>

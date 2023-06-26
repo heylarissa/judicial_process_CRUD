@@ -16,7 +16,10 @@ require "components/logout.php";
 </head>
 
 <body>
-    <div class="container">
+    <?php
+    require 'components/juris-nav.php';
+    ?>
+    <div id="main" class="container">
         <?php
         include "components/go_back.php";
         ?>

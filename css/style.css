@@ -31,6 +31,14 @@ body {
     padding: 5px 10px;
     border-radius: 5px;
 }
+
+select {
+    color: black !important;
+}
+
+option {
+    color: black !important;
+}
 .logout-juris:hover {
     background:var(--coral);
     border: 1px solid white;

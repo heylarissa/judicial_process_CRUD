@@ -108,10 +108,7 @@ class PessoaController
                         <td>" . $pessoa["cpf_cnpj"] . "</td>
                         <td>" . $pessoa["endereco"] . "</td>
                         <td>" . $pessoa["email"] . "</td>
-                        <td>
-                            <a href='processo_detail.php?id=" . $pessoa["id"] . "'>Editar</a>
-                            <a href='processo_delete.php?id=" . $pessoa["id"] . "'>Excluir</a>
-                        </td>
+
                     </tr>";
             }
         } else {
