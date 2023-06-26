@@ -49,9 +49,19 @@
                     <label for="confirme_senha">Confirme a senha</label>
                     <input required type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,8}" class="form-control" name="confirme_senha" placeholder="">
                 </div>
+                <div>
+                    <ul>
+                        <li>Um número.</li>
+                        <li>Uma letra maiúscula.</li>
+                        <li>Uma letra minúscula.</li>
+                        <li>Um caractere especial.</li>
+                        <li>Ter de 6 a 8 caracteres.</li>m0n3t!#LA
+                    </ul>
+                </div>
                 <input type="submit" name="register_btn" value="Salvar" class="btn-submit">
             </div>
         </form>
+
     </div>
 </body>
 
@@ -65,18 +75,15 @@ if (isset($_POST['register_btn'])) {
     $psswd = $_POST['senha'];
     $psswd_conf = $_POST['confirme_senha'];
 
-    if($psswd != $psswd_conf){
+    if ($psswd != $psswd_conf) {
         echo "As senhas não são compatíveis";
-    }
-    else {
+    } else {
 
         $pessoa = new PessoaController();
         $pessoa_id = $pessoa->createPessoa(0);
 
         $user = new UserController();
         $user->createUser($pessoa_id);
-
     }
-
 }
 ?>

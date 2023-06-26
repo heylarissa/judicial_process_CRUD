@@ -3,7 +3,7 @@ require_once "../modules/connectors/db_connector.php";
 
 require_once '../models/user.php';
 require_once '../models/dao/user_dao.php';
-
+require_once '../models/pessoa.php';
 class UserController {
     var $db;
 
@@ -22,22 +22,25 @@ class UserController {
         $user_array = $result->fetch_assoc();
 
         if ($result->num_rows == 1){
-            echo $user_array["username"];
 
             $user = new User();
-            $user->setUsername($result['username']);
-            $user->setPasswd($result['psswd']);
-            $user->setEmail($result['email']);
-            $user->setCelular($result['celular']);
-            $user->setPessoa($result['pessoa_id']);
+            $user->setUsername($user_array['username']);
+            $user->setPasswd($user_array['passwd']);
+            $user->setEmail($user_array['email']);
+            $user->setCelular($user_array['celular']);
+            $user->setPessoa($user_array['pessoa_id']);
 
-            if ($user->getPasswd() == $psswd){
-                return true;
+            if ($user->getPasswd() == md5($psswd)){
+                header("Location: /views/processos.php", TRUE, 301);
+                exit();
+            }
+            else {
+                echo "Senha incorreta";
             }
         
         }
         else {
-            echo "Não existe nenhum usuário com esse username";
+            echo "Não existe nenhum usuário com o Username ".$username;
         }
 
     }

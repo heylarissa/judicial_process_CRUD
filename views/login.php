@@ -18,9 +18,6 @@
         ?>
         <h1>Login</h1>
         <form class="login-form" action="#" method="post">
-
-
-
             <input label="Username" name="username" required placeholder="Usuário">
             <input label="Password" name="password" type="Password" required placeholder="Senha" placeholder="sua senha" required>
             <input type="submit" name="access_btn" value="Login" class="btn-submit">
@@ -31,11 +28,6 @@
         if (isset($_POST["access_btn"])) {
             $controller = new UserController();
             $auth = $controller->authenticate();
-
-            if ($auth) {
-                header("Location: /views/processos.php", TRUE, 301);
-            }
-            exit();
         }
         ?>
     </div>
