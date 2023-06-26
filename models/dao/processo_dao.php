@@ -16,15 +16,11 @@ class ProcessoDao
                         '{$processo->getCliente()->getId()}', 
                         '{$processo->getNumeroProcesso()}', 
                         '{$processo->getArquivo()}');";
-        echo $query;
         $result = $this->db->execute($query);
 
-            if ($result) {
-                echo "Success";
-            }
-            else {
-                echo "Failure in query: ".$query;
-            }
+        if (!$result) {
+            echo "Failure in query: " . $query;
+        }
     }
 
     public function selectProcesso($id)

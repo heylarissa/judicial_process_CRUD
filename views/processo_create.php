@@ -1,6 +1,5 @@
 <?php
 require "components/auth.php";
-require "components/logout.php";
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -34,10 +33,10 @@ require "components/logout.php";
             <?php
             require_once "../controllers/pessoa_controller.php";
             $advogados = new PessoaController();
-            $advogados->listAdvogados("Selecione");
+            $advogados->listAdvogadosProcessoCreate("Selecione");
 
             $clientes = new PessoaController();
-            $clientes->listClientes("Selecione");
+            $clientes->listClientesProcessoCreate("Selecione");
 
             ?>
             <div class="form-check">
@@ -47,7 +46,7 @@ require "components/logout.php";
                 <input name="arquivo" type="checkbox" class="form-control-input" id="arquivo" placeholder="">
 
             </div>
-            <input type="submit" name="submit_btn" value="Salvar" class="btn-submit">
+            <input type="submit"  style="color:white; background:none;border: 1px solid white; text-align: center;" name="submit_btn" value="Salvar" class="btn-submit">
 
         </form>
 

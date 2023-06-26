@@ -1,6 +1,5 @@
 <?php
 require "components/auth.php";
-require "components/logout.php";
 $id = $_GET['id'];
 
 ?>
@@ -29,8 +28,8 @@ $id = $_GET['id'];
         <h3>Certeza de que deseja excluir esse processo?</h3>
         <span>Essa ação é irreversível</span>
         <form method='POST' action="#">
-            <input type='submit' name="delete" value="Excluir">
-            <input type='submit' name="notdelete" value="Não">
+            <input type='submit' style="color:white; background:none;border: 1px solid white; text-align: center;"  name="delete" value="Excluir">
+            <input type='submit' style="color:white; background:none;border: 1px solid white; text-align: center;" name="notdelete" value="Não">
 
         </form>
 

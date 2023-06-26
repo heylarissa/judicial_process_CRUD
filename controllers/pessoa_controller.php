@@ -31,7 +31,72 @@ class PessoaController
 
         return $new_pessoa_id;
     }
+    public function listClientesProcessoCreate()
+    {
+        $pessoas = new PessoaDao($this->db);
+        $result = $pessoas->getPessoas();
+        $this->db->connect()->close();
+        $selected = "Selecione";
+        if (isset($_POST['cliente'])) {
+            $selected = $_POST['cliente'];
+        }
 
+        if ($result->num_rows > 0) {  // Verifica se são retornadas linhas
+            // Exibe os dados de cada linha retornada
+            echo " <div class='form-group'>
+                        <label>Cliente</label>
+                        <select name='cliente' class='form-control' required>";
+
+            while ($pessoa = $result->fetch_assoc()) {
+                
+                if ($pessoa['cliente'] == true) {
+                    if ($selected == $pessoa["nome"]) {
+                        echo "<option selected value='$pessoa[id]'>" . $pessoa["nome"] . "</option>";
+                    } else {
+                        echo "<option value='$pessoa[id]'>" . $pessoa["nome"] . "</option>";
+                    }
+                }
+            }
+
+            echo "  </select>
+                </div>";
+        } else {
+            echo "Não foram retornados registros."; // Não há linhas (registros) retornados
+        }
+    }
+    public function listAdvogadosProcessoCreate()
+    {
+        $pessoas = new PessoaDao($this->db);
+        $result = $pessoas->getPessoas();
+        $this->db->connect()->close();
+        $selected = "Selecione";
+        if (isset($_POST['advogado'])) {
+            $selected = $_POST['advogado'];
+        }
+
+        if ($result->num_rows > 0) {  // Verifica se são retornadas linhas
+            // Exibe os dados de cada linha retornada
+            echo " <div class='form-group'>
+                        <label>Advogado</label>
+                        <select name='advogado' class='form-control' required>";
+
+            while ($pessoa = $result->fetch_assoc()) {
+
+                if ($pessoa['cliente'] == false) {
+                    if ($selected == $pessoa["nome"]) {
+                        echo "<option selected value='$pessoa[id]'>" . $pessoa["nome"] . "</option>";
+                    } else {
+                        echo "<option value='$pessoa[id]'>" . $pessoa["nome"] . "</option>";
+                    }
+                }
+            }
+
+            echo "  </select>
+                </div>";
+        } else {
+            echo "Não foram retornados registros.";
+        }
+    }
     public function listClientes($selected)
     {
         $pessoas = new PessoaDao($this->db);
