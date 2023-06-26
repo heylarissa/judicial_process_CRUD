@@ -15,9 +15,12 @@ require "components/logout.php";
 
 <body>
     <div class=container>
+        <?php
+        include "components/go_back.php";
+        ?>
         <h1>Cadastro de processos</h1>
         <br>
-        <a href="form_processos.php"><button>Cadastrar processo</button></a>
+        <a href="processo_create.php"><button>Cadastrar processo</button></a>
         <table class='table table-dark table-striped table-bordered table-hover'>
             <thead>
                 <tr>
@@ -26,6 +29,7 @@ require "components/logout.php";
                     <th>Cliente</th>
                     <th>Número do Processo</th>
                     <th>Arquivado</th>
+                    <th></th>
                 </tr>
             </thead>
 

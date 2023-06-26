@@ -15,6 +15,9 @@ require "components/logout.php";
 
 <body>
     <div class=container>
+        <?php
+        include "components/go_back.php";
+        ?>
         <h1>Novo processo</h1>
         <br>
 
