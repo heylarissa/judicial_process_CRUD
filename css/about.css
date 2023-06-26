@@ -1,0 +1,16 @@
+.about{
+    display: flex;
+    gap: 30px;
+    flex-direction: row-reverse;
+    width: 56%;
+}
+
+img {
+    border-radius: 50%;
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}

@@ -1,3 +1,3 @@
 <?php
-echo "<a href='javascript:history.back()'>Voltar</a>"
+echo "<a class='go-back' href='javascript:history.back()'>Voltar</a>"
 ?>

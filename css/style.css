@@ -119,3 +119,21 @@ body {
         filter: brightness(200%);
     }
 }
+
+.actions-btns {
+    margin-top: 40px;
+    display: flex;
+    gap: 10px;
+
+}
+button{
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 10px 30px;
+    background: none;
+
+}
+
+button:hover{
+    transform: scale(1.01);
+}
