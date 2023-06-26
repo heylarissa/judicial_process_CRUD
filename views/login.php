@@ -1,3 +1,8 @@
+<?php
+  session_start(); // Cria uma sessão ou retoma a sessão atual
+  
+?>
+
 <!DOCTYPE html>
 <html>
 

@@ -31,6 +31,9 @@ class UserController {
             $user->setPessoa($user_array['pessoa_id']);
 
             if ($user->getPasswd() == md5($psswd)){
+                $_SESSION ['login']       = $username; // Ativa as variáveis de sessão
+                $_SESSION ['ID_Usuario']  = $user_array['id'];
+                $_SESSION ['email']        = $user_array['email'];
                 header("Location: /views/processos.php", TRUE, 301);
                 exit();
             }

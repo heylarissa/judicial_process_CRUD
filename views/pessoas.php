@@ -1,3 +1,6 @@
+<?php
+require "components/auth.php";
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 
