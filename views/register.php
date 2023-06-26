@@ -58,7 +58,7 @@
                         <li>Uma letra maiúscula.</li>
                         <li>Uma letra minúscula.</li>
                         <li>Um caractere especial.</li>
-                        <li>Ter de 6 a 8 caracteres.</li>m0n3t!#LA
+                        <li>Ter de 6 a 8 caracteres.</li>
                     </ul>
                 </div>
                 <input style="color:white; background:none;border: 1px solid white; text-align: center;" type="submit" name="register_btn" value="Salvar" class="btn-submit">
