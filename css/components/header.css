@@ -1,0 +1,29 @@
+#header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+    position:fixed;
+    z-index: 5;
+}
+
+.social-media {
+    display: flex;
+    width: 70px;
+    font-size: 20px;
+    justify-content: flex-start;
+    gap: 10px;
+    font-size: 18px;
+    color: white;
+}
+
+#menubtn {
+    z-index: 2;
+    border: none;
+    background: none;
+}
+
+#menubtn:hover {
+    transform: scale(1.1);
+}
