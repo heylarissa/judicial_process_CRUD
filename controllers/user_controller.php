@@ -12,6 +12,36 @@ class UserController {
         $this->db = new dbConnector();
     }
 
+    public function authenticate() {
+        $username = $_POST['username'];
+
+        $psswd = $_POST['password'];
+        
+        $userDAO = new UserDao($this->db);
+        $result = $userDAO->selectUser($username);
+        $user_array = $result->fetch_assoc();
+
+        if ($result->num_rows == 1){
+            echo $user_array["username"];
+
+            $user = new User();
+            $user->setUsername($result['username']);
+            $user->setPasswd($result['psswd']);
+            $user->setEmail($result['email']);
+            $user->setCelular($result['celular']);
+            $user->setPessoa($result['pessoa_id']);
+
+            if ($user->getPasswd() == $psswd){
+                return true;
+            }
+        
+        }
+        else {
+            echo "Não existe nenhum usuário com esse username";
+        }
+
+    }
+
     public function createUser ($pessoa_id) {
         $username = $_POST['username'];
         $psswd = $_POST['senha'];
@@ -56,4 +86,3 @@ class UserController {
         }
     }
 }
-?>

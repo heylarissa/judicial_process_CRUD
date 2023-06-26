@@ -43,11 +43,11 @@
                 </div>
                 <div class="col-6 form-group">
                     <label for="senha">Senha</label>
-                    <input required type="password" class="form-control" name="senha" placeholder="Senha">
+                    <input required type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,8}" class="form-control" name="senha" placeholder="Senha">
                 </div>
                 <div class="col-6 form-group">
                     <label for="confirme_senha">Confirme a senha</label>
-                    <input required type="password" class="form-control" name="confirme_senha" placeholder="">
+                    <input required type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,8}" class="form-control" name="confirme_senha" placeholder="">
                 </div>
                 <input type="submit" name="register_btn" value="Salvar" class="btn-submit">
             </div>

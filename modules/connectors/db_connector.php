@@ -24,6 +24,10 @@ class dbConnector{
 
     public function execute ($query) {
         $results = $this->connection->query($query);
+
+        if ($results == false){
+            echo "Failure: ". $query;
+        }
         return $results;
     }
 

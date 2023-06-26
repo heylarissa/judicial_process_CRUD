@@ -21,12 +21,14 @@ class UserDao
         $this->db->execute($query);
     }
 
-    public function selectUser($id)
+    public function selectUser($username)
     {
-        $query = "SELECT * , pessoas.nome nome_completo 
-                    FROM auth_user WHERE id = '{$id}'
-                    LEFT JOIN pessoas ON pessoas.id = auth_user.pessoa_id;";
-        return $this->db->execute($query);
+        $query = "SELECT *
+                    FROM auth_user
+                    WHERE username = '{$username}'";
+        $result = $this->db->execute($query);
+
+        return $result;
     }
 
     public function getUsers()

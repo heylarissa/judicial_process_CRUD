@@ -114,7 +114,7 @@ class PessoaController
                         <td>" . $pessoa["id"] . "</td>
                         <td>" . $pessoa["nome"] . "</td>
                         <td>" . $pessoa["cpf_cnpj"] . "</td>
-                        <td>" . $pessoa["endereço"] . "</td>
+                        <td>" . $pessoa["endereco"] . "</td>
                         <td>" . $pessoa["email"] . "</td>
                     </tr>";
             }
