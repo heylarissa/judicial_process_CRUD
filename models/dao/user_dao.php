@@ -10,11 +10,12 @@ class UserDao
 
     public function insertUser(User $user)
     {
+        $psswd = md5($user->getPasswd());
         $query = "INSERT INTO auth_user (email, celular, 
                                         username, passwd, 
                                         pessoa_id) 
                 VALUES ('{$user->getEmail()}', '{$user->getCelular()}', 
-                        '{$user->getUsername()}', '{$user->getPasswd()}', 
+                        '{$user->getUsername()}', '{$psswd}', 
                         '{$user->getPessoa()->getId()}');";
 
         $this->db->execute($query);
