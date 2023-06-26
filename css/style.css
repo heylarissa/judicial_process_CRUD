@@ -10,7 +10,6 @@
     --coral: #ED6E60;
     --light-coral: #f5c8c3;
     --black: #1d1d1d;
-
 }
 
 * {
@@ -57,6 +56,12 @@ body {
     background: none;
 }
 
+.go-back {
+    color: white;
+    text-decoration: none;
+    padding: 40px;
+}
+
 .sunny {
     /* color: var(--coral); */
     color: white;
@@ -84,7 +89,6 @@ body {
     justify-content: center;
     align-items: center;
 }
-
 
 .pulse {
     animation: pulse 0.7s infinite;
