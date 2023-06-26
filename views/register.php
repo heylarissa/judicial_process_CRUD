@@ -61,7 +61,7 @@
                         <li>Ter de 6 a 8 caracteres.</li>m0n3t!#LA
                     </ul>
                 </div>
-                <input type="submit" name="register_btn" value="Salvar" class="btn-submit">
+                <input style="color:white; background:none;border: 1px solid white; text-align: center;" type="submit" name="register_btn" value="Salvar" class="btn-submit">
             </div>
         </form>
 
